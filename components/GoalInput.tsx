@@ -15,6 +15,7 @@ function GoalInput({ onAddGoal }: Props) {
 	// Pass enteredGoalText to app.tsx
 	const addGoalHandler = () => {
 		onAddGoal(enteredGoalText)
+		setEnteredGoalText('')
 	}
 
 	return (
@@ -22,6 +23,7 @@ function GoalInput({ onAddGoal }: Props) {
 			<TextInput
 				style={styles.textInput}
 				placeholder="Your goal"
+				value={enteredGoalText}
 				onChangeText={goalInputHandler}
 			/>
 			<Button title="Add Goal" onPress={addGoalHandler} />

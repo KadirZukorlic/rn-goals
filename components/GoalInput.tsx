@@ -12,6 +12,7 @@ function GoalInput({ onAddGoal }: Props) {
 		setEnteredGoalText(enteredText)
 	}
 
+	// Pass enteredGoalText to app.tsx
 	const addGoalHandler = () => {
 		onAddGoal(enteredGoalText)
 	}

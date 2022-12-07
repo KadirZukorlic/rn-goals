@@ -12,6 +12,7 @@ export default function App() {
 	const [goalList, setGoalList] = useState<GoalList[]>([])
 
 	const addGoalHandler = (enteredGoalText: string) => {
+		if (enteredGoalText.trim().length == 0) return
 		setGoalList((prevState) => [
 			...prevState,
 			{ text: enteredGoalText, id: Math.random().toString() }

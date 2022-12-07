@@ -19,13 +19,21 @@ export default function App() {
 		])
 	}
 
+	const deleteGoalHandler = (id: string) => {
+		setGoalList((prevState: GoalList[]) => {
+			return prevState.filter((item) => id !== item.id)
+		})
+	}
+
 	return (
 		<View style={styles.appContainer}>
 			<GoalInput onAddGoal={addGoalHandler} />
 			<View style={styles.goalsContainer}>
 				<FlatList
 					data={goalList}
-					renderItem={(itemData) => <GoalItem itemData={itemData} />}
+					renderItem={(itemData) => (
+						<GoalItem itemData={itemData} onDeleteItem={deleteGoalHandler} />
+					)}
 					keyExtractor={(item) => item.id}
 					alwaysBounceVertical={false}
 				/>
